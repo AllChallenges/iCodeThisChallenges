@@ -10,12 +10,16 @@ const SubscribeModal = () => {
 
   return (
     <div className="modal__main">
-      <div className="modal__gradient"></div>
+      <div
+        className={`modal__gradient ${
+          showModal ? "modal__gradient__show" : ""
+        }`}
+      ></div>
       <button
         className="btn modal__open-btn"
         onClick={() => setShowModal(true)}
       >
-        Subscribe
+        Show Modal
       </button>
       <section
         className={`modal__container ${
@@ -50,6 +54,7 @@ const SubscribeModal = () => {
               className="btn modal__submit-btn"
               placeholder="Email Address"
             >
+              <div className="loading"></div>
               Subscribe
             </button>
             <p className="modal__no-spam">
