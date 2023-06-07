@@ -1,5 +1,5 @@
 import React from "react";
-import Jellyfish from "/project/pexels-photo-14264289.jpeg";
+import Jellyfish from "/project/modalSideImg.jpeg";
 import "./subscribeModal.css";
 import Close from "../../../assets/icons/close";
 
