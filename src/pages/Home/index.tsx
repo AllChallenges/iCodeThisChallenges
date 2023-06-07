@@ -102,7 +102,7 @@ const GridItem = () => {
     <Link to="/projects/SubscribeModal">
       <div className="grid__item" tabIndex={-1}>
         <div className="grid__img">
-          <img src="/public/subscribe_modal.webp" alt="img" />
+          <img src="/challenges/subscribe_modal.webp" alt="img" />
         </div>
         <div className="grid__overly" tabIndex={-1}>
           <h2> Subscribe Modal</h2>
