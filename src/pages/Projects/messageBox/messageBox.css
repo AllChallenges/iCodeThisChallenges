@@ -1,0 +1,217 @@
+:root {
+  --primary-clr: hsl(220, 43%, 97%);
+  --secondary-clr: hsl(0, 0%, 100%);
+  --cross-clr: hsl(214, 45%, 40%);
+  --checkbox-blue: hsl(215, 79%, 54%);
+  --border-clr: hsl(240, 4%, 90%);
+  --input-clr: hsl(219, 31%, 73%);
+  --outline-clr: #7dd3fc;
+  --box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.main__ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg-clr);
+}
+
+.message__box {
+  background: var(--secondary-clr);
+  max-width: 600px;
+  width: min(100% - 1em, 460px);
+  padding: 2.6em;
+  border-radius: 6px;
+  box-shadow: var(--box-shadow);
+  display: grid;
+  gap: 1em;
+}
+
+/* MESSAGE HEADER */
+
+.message__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message__header__title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.message__close {
+  cursor: pointer;
+  color: var(--cross-clr);
+  padding: 0.2em;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.message__close:hover {
+  background: rgba(17, 17, 26, 0.1);
+}
+
+/* MESSAGE SEARCH BAR */
+.message__input {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-clr);
+  padding: 0em 1em;
+  background: var(--primary-clr);
+  border-radius: 0.2em;
+  height: 4rem;
+}
+
+.message__input:focus-within {
+  outline: 1px solid hsl(215, 79%, 54%);
+}
+
+.message__search__icon {
+  color: var(--input-clr);
+  margin-right: 0.4em;
+}
+
+.message__input input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  background: inherit;
+}
+
+.message__input input::placeholder {
+  color: var(--input-clr);
+  font-size: 1rem;
+}
+
+/* MESSAGE SUBHEADER */
+.message__subheader {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 0.9rem;
+  margin-top: 0.5em;
+}
+
+/* SELECTED NAME */
+.person__selected__lists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.person__selected {
+  padding-block: 0.4em;
+  padding-inline: 0.8em;
+  background-color: hsl(199, 53%, 74%);
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.person__selected:hover {
+  background-color: hsl(199, 53%, 84%);
+}
+
+/* MESSAGE LIST */
+.message__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em;
+  transition: 0.3s ease;
+}
+
+.message__list:not(:last-of-type) {
+  margin-bottom: 0.5em;
+}
+
+.message__list:hover {
+  background: var(--primary-clr);
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.message__person {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.message__person__avatar {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.message__person__name {
+  font-weight: 500;
+}
+
+.message__person__email {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* CHECKBOX */
+.person__check__container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.person__check__container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.person__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  background-color: var(--secondary-clr);
+  border: 1px var(--border-clr) solid;
+  border-radius: 15px;
+}
+
+.person__check__container:hover input ~ .person__checkmark {
+  background-color: #e3e3e3;
+}
+
+.person__check__container input:checked ~ .person__checkmark {
+  background-color: hsl(214, 88%, 53%);
+  border: none;
+}
+
+.person__checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.person__check__container input:checked ~ .person__checkmark:after {
+  display: block;
+}
+
+.person__check__container .person__checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 7px;
+  height: 12px;
+  border: 1px solid var(--secondary-clr);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

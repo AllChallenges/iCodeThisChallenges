@@ -27,7 +27,7 @@ const Home = () => {
               size={{ width: 20, height: 20 }}
               className="link__completed-icon"
             />
-            0 completed
+            2 completed
           </div>
           <a
             className="link link__profile"
@@ -70,49 +70,63 @@ const Home = () => {
       </section>
 
       <section className="grid">
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
+        <GridItem
+          name="Subscribe Modal"
+          imgUrl="/challenges/subscribe_modal.webp"
+          to="/projects/subscribeModal"
+        />
+        <GridItem
+          name="Message box"
+          imgUrl="/challenges/new_message.webp"
+          to="/projects/messageBox"
+        />
+        <GridItem imgUrl="/challenges/coming__soon.png" to="#" disableOverlay />
+        <GridItem imgUrl="/challenges/coming__soon.png" to="#" disableOverlay />
+        <GridItem imgUrl="/challenges/coming__soon.png" to="#" disableOverlay />
+        <GridItem imgUrl="/challenges/coming__soon.png" to="#" disableOverlay />
+        <GridItem imgUrl="/challenges/coming__soon.png" to="#" disableOverlay />
+        <GridItem imgUrl="/challenges/coming__soon.png" to="#" disableOverlay />
+        <GridItem imgUrl="/challenges/coming__soon.png" to="#" disableOverlay />
       </section>
 
       <footer className="home__footer" role="contentinfo">
-        <h5 className="home__footer__text">
-          All Challenges completed by{" "}
-          <a
-            href="https://github.com/RabeDatta"
-            target="_blank"
-            rel="noreferrer"
-          >
-            @RabeDatta
-          </a>
-        </h5>
+        <h5 className="home__footer__text">All Challenges completed by </h5>
+        <a href="https://github.com/RabeDatta" target="_blank" rel="noreferrer">
+          @RabeDatta
+        </a>
       </footer>
     </div>
   );
 };
 
-const GridItem = () => {
+const GridItem = ({
+  to,
+  name,
+  imgUrl,
+  disableOverlay = false,
+}: {
+  to: string;
+  name?: string;
+  imgUrl: string;
+  disableOverlay?: boolean;
+}) => {
   return (
-    <Link to="/projects/SubscribeModal">
+    <Link to={to}>
       <div className="grid__item" tabIndex={-1}>
         <div className="grid__img">
-          <img src="/challenges/subscribe_modal.webp" alt="img" />
+          <img src={imgUrl} alt="img" />
         </div>
-        <div className="grid__overly" tabIndex={-1}>
-          <h2> Subscribe Modal</h2>
-          <a href="#" className="overly__btn" role="button">
-            View Project
-          </a>
-        </div>
+        {!disableOverlay && (
+          <div className="grid__overly" tabIndex={-1}>
+            <h2> {name} </h2>
+            <a href="#" className="overly__btn" role="button">
+              View Project
+            </a>
+          </div>
+        )}
       </div>
     </Link>
   );
 };
-
+// "/challenges/subscribe_modal.webp"
 export default Home;
